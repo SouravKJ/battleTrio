@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <title>Battle Trio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="nav">
+        <div class="profile">
+            <div class="photo"><i class="fa-solid fa-user"></i></div>
+            <div class="name">User Name</div>
+        </div>
+        <div class="buttons">
+            <div class="login">login</div>
+            <div class="register"><p>Register</p></div>
+        </div>
+    </div>
+    <div class="main">
+    <div class="container">
+        <h1>Stone, Paper, Scissor Game</h1>
+        <p>Click on your choice:</p>
+        <div class="choices">
+            <img src="images/stone.png" alt="Stone" class="choice" onclick="playGame('stone')" />
+            <img src="images/paper.png" alt="Paper" class="choice" onclick="playGame('paper')" />
+            <img src="images/scissor.png" alt="Scissor" class="choice" onclick="playGame('scissor')" />
+        </div>
+        <div id="results">
+            <div class="one">
+            <div>
+                <p>Computer's choice:</p>
+                <div id="countdown"></div>
+                <img id="computer-choice-image" src="images/CHOICE1.png" alt="Computer's choice" class="output-image" />
+            </div>
+            <div>
+                <p>Your choice:</p>
+                <img id="user-choice-image" src="images/CHOICE2.png" alt="Your choice" class="output-image" />
+            </div>
+        </div>
+            <p id="result">Result: </p>
+        </div>
+        <button id="reset" onclick="resetGame()">Reset</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
