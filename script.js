@@ -2,7 +2,12 @@ let UserName = prompt("Enter your name:").trim();
 let firstWord = UserName.split(" ")[0];
 // Speak the greeting after the name is entered
 speak("Hello " +firstWord + ", how are you?");
+let nameElements = document.getElementsByClassName("name");
 
+for (let el of nameElements) {
+  el.textContent = UserName;  // ✅ show username text
+  el.style.display = "block"; // ✅ make sure visible
+}
 // Wait for speech to finish, then ask for condition
 setTimeout(() => {
     let Condition = prompt("How are you?").trim();
