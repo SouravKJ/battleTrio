@@ -222,7 +222,7 @@ p {
     display: none;
     position: absolute;
     right: 0px;
-    top: -8rem;
+    top: -2rem;
     width: 22rem;
     padding: 6px;
     border-radius: 2rem;
@@ -281,5 +281,5 @@ i {
     font-weight: bolder;
 }
 .gameForm{
-    margin-top: 10rem;
+    margin: 3rem;
 }
