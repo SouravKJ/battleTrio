@@ -6,16 +6,18 @@ body {
     margin: 0;
     padding: 0;
 }
-.main{
+
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container {
+
+.containers {
     margin-top: 2rem;
-    border:1px solid gray;
-    padding:1rem 1rem 1rem 1rem;
-    border-radius:1rem ;
+    border: 1px solid gray;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 1rem;
 }
 
 h1 {
@@ -25,7 +27,7 @@ h1 {
 .choices {
     margin: 20px 0;
     border: 1px solid gray;
-    border-radius:1rem;
+    border-radius: 1rem;
 }
 
 .choice {
@@ -42,25 +44,31 @@ h1 {
     transform: scale(1.1);
     border-color: #007bff;
 }
+
 .output-image {
     width: 100px;
     height: 100px;
     margin: 10px;
     display: inline-block;
 }
-.one{
+
+.one {
     display: flex;
     justify-content: center;
     column-gap: 100px;
 }
+
 #results {
     margin-top: 20px;
     font-size: 18px;
     color: #444;
 }
-#computer-choice-image,#user-choice-image{
+
+#computer-choice-image,
+#user-choice-image {
     border: 2px solid gray;
 }
+
 #reset {
     margin-top: 20px;
     padding: 10px 20px;
@@ -81,6 +89,7 @@ h1 {
 p {
     margin: 5px 0;
 }
+
 #countdown {
     font-size: 24px;
     /* display: flex;
@@ -90,9 +99,10 @@ p {
     color: #ff4500;
     margin-bottom: 10px;
 }
-.nav{
+
+.nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 5rem;
     width: 100%;
@@ -101,12 +111,14 @@ p {
     background-color: #333;
     color: #f0f8ff;
 }
-.profile{
+
+.profile {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
-.photo{
-    background-color: rgba(255,255,255, 0.3);
+
+.photo {
+    background-color: rgba(255, 255, 255, 0.3);
     height: 2rem;
     padding: 0.5rem;
     border-radius: 50%;
@@ -114,65 +126,160 @@ p {
     font-size: 1.5rem;
     cursor: pointer;
 }
-.photo:hover{
+
+.photo:hover {
     transform: scale(0.9);
-    transition:transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
-.name{
+
+.name {
     height: 2rem;
     padding-top: 0.5rem;
+    padding-left: 0.5rem;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
 }
-.photo i{
+
+.photo i {
     width: 100%;
 }
-.buttons{
+
+.buttons {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    width:8rem;
-    gap:2rem;
-    font-size:1rem;
+    grid-template-columns: repeat(3, 1fr);
+    width: 25rem;
+    gap: 2rem;
+    font-size: 1rem;
 }
-.login{
-    border: 2px solid gray;
-    background-color: var(--purple);
-    width: 7rem;
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-    border-radius:0.5rem;
-    cursor: pointer;
-}
-.login:hover{
-    transform: scale(0.9);
-    transition:transform 0.2s ease-in-out;
-}
-.register{
+
+.login {
     border: 2px solid gray;
     width: 7rem;
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-    background-color: rgba(255,255,255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     z-index: 0;
-    border-radius:0.5rem;
+    border-radius: 0.5rem;
     cursor: pointer;
 }
-.register:hover{
+
+/* .uwin{
+    mar
+} */
+.login:hover {
     transform: scale(0.9);
-    transition:transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 }
-.register p{
+
+.register {
+    border: 2px solid gray;
+    width: 7rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* .computer{
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+} */
+.register:hover {
+    transform: scale(0.9);
+    transition: transform 0.2s ease-in-out;
+}
+
+.register p {
     z-index: 1;
 }
+
+.round {
+    color: white;
+}
+
 @media screen and (max-width: 600px) {
-    .one{
+    .one {
         flex-direction: column;
         justify-content: center;
     }
-    
 
-    
+
+
+}
+
+.alert {
+    transition: opacity 1s ease-in-out;
+
+}
+
+.round-wrapper {
+    position: relative;
+}
+
+#roundError {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: -8rem;
+    width: 22rem;
+    padding: 6px;
+    border-radius: 2rem;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    75% {
+        transform: translateX(-4px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+i {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.inputf {
+    margin: 2rem;
+}
+
+.username {
+    width: 30rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+    padding-left: 2rem;
+    font-size: large;
+}
+
+.rounds {
+    width: 30rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+    padding-left: 2rem;
+    font-size: large;
+}
+.submit{
+    border-radius: 1rem;
+    padding: 0.5rem;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.gameForm{
+    margin: 10rem;
 }
