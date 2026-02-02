@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +10,89 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Battle Trio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-     <div class="nav">
-        <div class="profile">
-            <div class="photo"><i class="fa-solid fa-user"></i></div>
-            <div class="name"></div>
-        </div>
-        <div class="buttons">
-            <div class="login">login</div>
-            <div class="register"><p>Register</p></div>
+    <div class="round-wrapper">
+        <div id="roundError" class="alert alert-danger">
+            Please enter an odd number of rounds
+            <i class="bx bx-x" style="color:black;"></i>
         </div>
     </div>
-    <div class="main">
-    <div class="container">
-        <h1>Stone, Paper, Scissor Game</h1>
-        <p>Click on your choice:</p>
-        <div class="choices">
-            <img src="images/stone.png" alt="Stone" class="choice" onclick="playGame('stone')" />
-            <img src="images/paper.png" alt="Paper" class="choice" onclick="playGame('paper')" />
-            <img src="images/scissor.png" alt="Scissor" class="choice" onclick="playGame('scissor')" />
-        </div>
-        <div id="results">
-            <div class="one">
+    <div class="start-screen" id="startScreen">
+
+
+        <form class="gameForm">
+            <h2>Start Battle Trio⚔️</h2>
+
             <div>
-                <p>Computer's choice:</p>
-                <div id="countdown"></div>
-                <img id="computer-choice-image" src="images/CHOICE1.png" alt="Computer's choice" class="output-image" />
+                <div class="inputf">
+                    <input type="text" class="username" placeholder="Enter your name" required />
+                </div>
+                <div class="inputf">
+                    <input type="number" class="rounds" placeholder="Total rounds (odd only)" required />
+                </div>
             </div>
-            <div>
-                <p>Your choice:</p>
-                <img id="user-choice-image" src="images/CHOICE2.png" alt="Your choice" class="output-image" />
-            </div>
-        </div>
-            <p id="result">Result: </p>
-        </div>
-        <button id="reset" onclick="resetGame()">Reset</button>
+
+
+
+
+            <button type="submit" class="submit">Start Game</button>
+        </form>
     </div>
-    <script src="script.js"></script>
+
+    <div class="gameScreen" style="display:none;">
+        <div class="nav">
+            <div class="buttons">
+                <div class="login">
+                    <p class="user"></p>
+                    <div class="uwin">0</div>
+                </div>
+                <div class="round">
+                    <p>
+                        Round
+                    </p>
+                    <div class="turn"><span id="done">0</span>/<span id="total"></span></div>
+                </div>
+                <div class="register">
+                    <p class="computer">Computer</p>
+                    <div class="cwin">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="containers">
+                <h1>Stone, Paper, Scissor Game</h1>
+                <p>Click on your choice:</p>
+                <div class="choices">
+                    <img src="images/stone.png" alt="Stone" class="choice" onclick="playGame('stone')" />
+                    <img src="images/paper.png" alt="Paper" class="choice" onclick="playGame('paper')" />
+                    <img src="images/scissor.png" alt="Scissor" class="choice" onclick="playGame('scissor')" />
+                </div>
+                <div id="results">
+                    <div class="one">
+                        <div>
+                            <p>Computer's choice:</p>
+                            <div id="countdown"></div>
+                            <img id="computer-choice-image" src="images/CHOICE1.png" alt="Computer's choice"
+                                class="output-image" />
+                        </div>
+                        <div>
+                            <p>Your choice:</p>
+                            <img id="user-choice-image" src="images/CHOICE2.png" alt="Your choice"
+                                class="output-image" />
+                        </div>
+                    </div>
+                    <p id="result">Result: </p>
+                </div>
+                <button id="reset" onclick="resetGame()">Reset Round</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
 </body>
+
 </html>
