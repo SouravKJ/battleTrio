@@ -1,31 +1,54 @@
-let UserName = prompt("Enter your name:").trim();
-let firstWord = UserName.split(" ")[0];
-// Speak the greeting after the name is entered
-speak("Hello " +firstWord + ", how are you?");
-let nameElements = document.getElementsByClassName("name");
+const start=document.querySelector(".start-screen");
+const gameScreen=document.querySelector(".gameScreen");
+let use=document.querySelector(".username");
+const user=document.getElementsByClassName("user");
+let uwin=document.querySelector(".uwin");
+let cwin=document.querySelector(".cwin");
+let turn=document.getElementById("done");
+let c=0;
+let u=0;
+let t=0
+  let errorBox=document.getElementById("roundError");
+const form=document.querySelector(".gameForm");
+let TotalRound = 0;
+const roundsInput = document.querySelector(".rounds");
 
-for (let el of nameElements) {
-  el.textContent = UserName;  // ✅ show username text
-  el.style.display = "block"; // ✅ make sure visible
-}
-// Wait for speech to finish, then ask for condition
-setTimeout(() => {
-    let Condition = prompt("How are you?").trim();
+let cross=document.querySelector("i");
 
-    // Capitalize the first letter
-    Condition = capitalize(Condition);
+roundsInput.addEventListener("input", () => {
+    errorBox.style.display = "none";
+});
 
-    // Speak based on the user's condition
-    setTimeout(() => {
-        if (Condition === "Good" || Condition === "Well" || Condition==="Fine") {
-            speak("That's great to hear that you are good.");
-            speak("Welcome to STONE PAPER SCISSOR game. Choose among Stone, Paper, or Scissor.");
-        } else {
-            speak("Sorry to hear that you are not well. Play your childhood game Stone Paper Scissor to brush up your memory. So, let's go!");
-        }
-    }, 1000); // Small delay to ensure smoother experience
+ cross.addEventListener("click",function(){
+        errorBox.style.display="none";
+    });
 
-}, 2000); // Delay to ensure the first speech is completed before asking the condition
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    let UserName =use .value.trim();
+    let firstWord = UserName.split(" ")[0];
+    TotalRound = Number(roundsInput.value);
+     if (TotalRound % 2 === 0) {
+        errorBox.style.display="block";
+        return; // ⛔ STOP here
+    }
+
+    start.style.display="none";
+    gameScreen.style.display="block";
+
+    // ✅ valid odd number → continue game setup
+    document.getElementById("total").textContent = TotalRound;
+
+
+    for (let el of user) {
+        el.textContent = firstWord;  // ✅ show username text
+        el.style.display = "block"; // ✅ make sure visible
+    }
+
+
+});
+
 
 // Function to capitalize the first letter
 function capitalize(choice) {
@@ -72,7 +95,8 @@ function showComputerChoice(callback) {
     }, 1000);
 }
 function playGame(userChoice) {
-    const choiceToImage = {
+    if (t < TotalRound) {
+        const choiceToImage = {
         stone: "images/stone.png",
         paper: "images/paper.png",
         scissor: "images/scissor.png"
@@ -90,22 +114,52 @@ function playGame(userChoice) {
             (computerChoice === "paper" && userChoice === "stone")
         ) {
             result = "Computer wins!";
+            c++;
+
         } else {
             result = "You win!";
+            u++;
         }
-
+        t++;
+        console.log(c);
+        console.log(u);
+        console.log(t);
         document.getElementById("result").textContent = `Result: ${result}`; // Update UI first
+         uwin.textContent = u;
+        cwin.textContent = c;
+        turn.textContent=t;
         speak(result);
     });
+    }
+    else{
+        document.getElementById("result").textContent =
+            "Game Over! Click Reset to play again.";
+        speak("Game over. Please reset to play again.");
+        return; // ⛔ VERY IMPORTANT
+    }
+    
 }
+
 
 function resetGame() {
     clearInterval(countdownInterval);
     document.getElementById("computer-choice-image").src = "images/CHOICE1.png";
     document.getElementById("user-choice-image").src = "images/CHOICE2.png";
     document.getElementById("result").textContent = "Result: ";
+    TotalRound = 0;
+    t = 0;
+    c = 0;
+    u = 0;
+    uwin.textContent = u;
+    cwin.textContent = c;
+    turn.textContent = t;
     countdownElement.textContent = "";
+    start.style.display="block";
+    use.value='';
+    roundsInput.value="";
+    gameScreen.style.display="none";
 }
+
 
 // Function to convert text to speech
 function speak(text) {
