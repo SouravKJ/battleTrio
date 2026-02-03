@@ -86,6 +86,42 @@ h1 {
     transform: scale(1.05);
 }
 
+
+#reset_round{
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#reset_round:hover {
+    background-color: rgb(27, 203, 77);
+    transform: scale(1.05);
+}
+
+#reset_user{
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+#reset_user:hover{
+    background-color: rgb(236, 7, 71);
+    transform: scale(1.05);
+}
+.resets{
+    margin: 0.2rem;
+}
 p {
     margin: 5px 0;
 }
@@ -162,9 +198,7 @@ p {
     cursor: pointer;
 }
 
-/* .uwin{
-    mar
-} */
+
 .login:hover {
     transform: scale(0.9);
     transition: transform 0.2s ease-in-out;
@@ -179,13 +213,7 @@ p {
     cursor: pointer;
 }
 
-/* .computer{
-    padding-top: 0.5rem;
-    padding-left: 0.5rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-} */
+
 .register:hover {
     transform: scale(0.9);
     transition: transform 0.2s ease-in-out;
@@ -283,3 +311,4 @@ i {
 .gameForm{
     margin: 3rem;
 }
+
