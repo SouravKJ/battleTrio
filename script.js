@@ -8,8 +8,9 @@ let turn=document.getElementById("done");
 let c=0;
 let u=0;
 let t=0
-  let errorBox=document.getElementById("roundError");
+let errorBox=document.getElementById("roundError");
 const form=document.querySelector(".gameForm");
+let resets=document.querySelector(".resets")
 let TotalRound = 0;
 const roundsInput = document.querySelector(".rounds");
 
@@ -101,6 +102,21 @@ function playGame(userChoice) {
         paper: "images/paper.png",
         scissor: "images/scissor.png"
     };
+    if(t===TotalRound){
+        t++;
+
+if (t === TotalRound) {
+    blaskConfetti();   // 🎉 BOOM
+    document.getElementById("result").textContent =
+        u > c ? "🎉 You won the game!" :
+        c > u ? "😈 Computer won the game!" :
+        "🤝 Game Draw!";
+
+    speak("Game over");
+    return; // stop further clicks
+}
+
+    }
 
     document.getElementById("user-choice-image").src = choiceToImage[userChoice];
 
@@ -113,11 +129,11 @@ function playGame(userChoice) {
             (computerChoice === "scissor" && userChoice === "paper") ||
             (computerChoice === "paper" && userChoice === "stone")
         ) {
-            result = "Computer wins!";
+            result = "Round Computer wins!";
             c++;
 
         } else {
-            result = "You win!";
+            result = "Round You win!";
             u++;
         }
         t++;
@@ -142,6 +158,28 @@ function playGame(userChoice) {
 
 
 function resetGame() {
+    resets.style.display="block";
+}
+
+function resetRound(){
+    clearInterval(countdownInterval);
+    document.getElementById("computer-choice-image").src = "images/CHOICE1.png";
+    document.getElementById("user-choice-image").src = "images/CHOICE2.png";
+    document.getElementById("result").textContent = "Result: ";
+    do{
+        TotalRound = prompt("enter your valid round(odd round):");
+    }while(TotalRound%2 ===0);
+    
+    t = 0;
+    c = 0;
+    u = 0;
+    uwin.textContent = u;
+    cwin.textContent = c;
+    turn.textContent = t;
+    countdownElement.textContent = "";
+}
+
+function resetUser(){
     clearInterval(countdownInterval);
     document.getElementById("computer-choice-image").src = "images/CHOICE1.png";
     document.getElementById("user-choice-image").src = "images/CHOICE2.png";
@@ -161,8 +199,10 @@ function resetGame() {
 }
 
 
+
 // Function to convert text to speech
 function speak(text) {
+    window.speechSynthesis.cancel();
     let speech = new SpeechSynthesisUtterance(text);
     speech.lang = 'hi-IN';
     speech.rate = 1.0;
