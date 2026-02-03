@@ -166,10 +166,9 @@ function resetRound(){
     document.getElementById("computer-choice-image").src = "images/CHOICE1.png";
     document.getElementById("user-choice-image").src = "images/CHOICE2.png";
     document.getElementById("result").textContent = "Result: ";
-    do{
-        TotalRound = prompt("enter your valid round(odd round):");
-    }while(TotalRound%2 ===0);
-    
+     do {
+        TotalRound = Number(prompt("Enter valid odd round:"));
+    } while (TotalRound % 2 === 0 || isNaN(TotalRound));
     t = 0;
     c = 0;
     u = 0;
@@ -177,6 +176,8 @@ function resetRound(){
     cwin.textContent = c;
     turn.textContent = t;
     countdownElement.textContent = "";
+    document.getElementById("total").textContent = TotalRound;
+    resets.style.display = "none";
 }
 
 function resetUser(){
