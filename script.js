@@ -148,10 +148,25 @@ if (t === TotalRound) {
     });
     }
     else{
-        document.getElementById("result").textContent =
-            "Game Over! Click Reset to play again.";
-        speak("Game over. Please reset to play again.");
+        if(u>c){
+            document.getElementById("result").textContent =
+            "Game Over! You won the game! Click Reset to play again.";
+              speak("Game over. You won the game. Please reset to play again.");
+             return; // ⛔ VERY IMPORTANT
+        }
+        else if(c>u){
+            document.getElementById("result").textContent =
+            "Game Over! Computer won the game! Click Reset to play again.";
+        speak("Game over. Computer won the game. Please reset to play again.");
         return; // ⛔ VERY IMPORTANT
+        }
+        else{
+            document.getElementById("result").textContent =
+            "Game Over! Game tie! Click Reset to play again.";
+        speak("Game over.Game tie! Please reset to play again.");
+        return; // ⛔ VERY IMPORTANT
+        }
+        
     }
     
 }
