@@ -68,7 +68,7 @@ function showComputerChoice(callback) {
   clearInterval(countdownInterval);
 
   countdownInterval = setInterval(() => {
-    speak(choices[countdown]);
+  
     countdown++;
     if (countdown < 3) {
       countdownElement.textContent = `${choices[countdown]}`;
