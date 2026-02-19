@@ -73,7 +73,6 @@ function showComputerChoice(callback) {
     clearInterval(countdownInterval);
 
     countdownInterval = setInterval(() => {
-        speak(choices[countdown]);
         countdown++;
         if (countdown < 3) {
             countdownElement.textContent = `${choices[countdown]}`;
@@ -102,6 +101,7 @@ function playGame(userChoice) {
         paper: "images/paper.png",
         scissor: "images/scissor.png"
     };
+    }
     if(t===TotalRound){
         t++;
 
@@ -116,7 +116,7 @@ if (t === TotalRound) {
     return; // stop further clicks
 }
 
-    }
+    
 
     document.getElementById("user-choice-image").src = choiceToImage[userChoice];
 
