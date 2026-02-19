@@ -5,6 +5,8 @@ Battle Trio is an interactive **Stone–Paper–Scissor web game** where a playe
 The game includes a start screen, round tracking, score updates, speech feedback, and reset controls — all built using **HTML, CSS, and JavaScript**.
 
 ---
+## 🚀 Live Demo
+👉 [Play the Game](https://battle-trio.vercel.app/)
 
 ## 🎮 Features
 
@@ -22,8 +24,6 @@ The game includes a start screen, round tracking, score updates, speech feedback
   * Reset player & game
 
 ---
-## 🎥 Gameplay Demo
-  
 
 ## 🧠 How the Game Works
 
