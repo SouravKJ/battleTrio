@@ -6,11 +6,6 @@ The game includes a start screen, round tracking, score updates, speech feedback
 
 ---
 
-## 🚀 Live Demo
-👉 [Play the Game](https://battle-trio.vercel.app/)
-
----
-
 ## 🎮 Features
 
 * Player vs Computer gameplay
@@ -85,6 +80,11 @@ That's it — no installation required ✅
 * Scissor beats Paper
 * Paper beats Stone
 * Same choice = Tie
+
+---
+
+## 🚀 Live Demo
+👉 [Play the Game](https://battle-trio.vercel.app/)
 
 ---
 
